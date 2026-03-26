@@ -27,21 +27,22 @@ const NAV_LINKS = [
   { id: "contacts",label: "Контакты" },
 ];
 
-const CATEGORIES = ["Все", "Зерновые", "Овощи", "Фрукты", "Молочное", "Консервы", "Масла и жиры"];
+const CATEGORIES = ["Все", "Спреды", "Масло", "Сыры", "Топлёные смеси", "Топлёное масло"];
 
 const PRODUCTS = [
-  { id: 1,  name: "Пшеница 3 класс",       category: "Зерновые",    price: 12500, unit: "тонна", emoji: "🌾", desc: "ГОСТ 9353-2016, влажность до 14%" },
-  { id: 2,  name: "Сахар-песок",            category: "Зерновые",    price: 58000, unit: "тонна", emoji: "🍬", desc: "ГОСТ 21-94, мешки по 50 кг" },
-  { id: 3,  name: "Мука пшеничная в/с",     category: "Зерновые",    price: 24000, unit: "тонна", emoji: "🫙", desc: "ГОСТ 26574-2017, фасовка 50 кг" },
-  { id: 4,  name: "Картофель столовый",     category: "Овощи",       price: 18000, unit: "тонна", emoji: "🥔", desc: "Сортовой, калибр 50+, мешки 30 кг" },
-  { id: 5,  name: "Морковь столовая",       category: "Овощи",       price: 22000, unit: "тонна", emoji: "🥕", desc: "Мытая, фасовка сетки по 25 кг" },
-  { id: 6,  name: "Капуста белокочанная",   category: "Овощи",       price: 15000, unit: "тонна", emoji: "🥬", desc: "Поздних сортов, от 1 кг" },
-  { id: 7,  name: "Яблоки Голден",          category: "Фрукты",      price: 65000, unit: "тонна", emoji: "🍎", desc: "Калибр 65+, ящики по 18 кг" },
-  { id: 8,  name: "Масло подсолнечное",     category: "Масла и жиры",price: 95000, unit: "тонна", emoji: "🫒", desc: "Рафинированное, ПЭТ-бутылки 5 л" },
-  { id: 9,  name: "Молоко пастеризованное", category: "Молочное",    price: 48000, unit: "тонна", emoji: "🥛", desc: "Жирность 3.2%, Тетра Пак 1 л" },
-  { id: 10, name: "Консервы томатные",      category: "Консервы",    price: 72000, unit: "тонна", emoji: "🥫", desc: "Паста томатная, жестяные банки 3 кг" },
-  { id: 11, name: "Гречиха ядрица",         category: "Зерновые",    price: 35000, unit: "тонна", emoji: "🫘", desc: "1 сорт, ГОСТ Р 55290-2012" },
-  { id: 12, name: "Лук репчатый",           category: "Овощи",       price: 16000, unit: "тонна", emoji: "🧅", desc: "Сортовой, сетки по 25 кг" },
+  { id: 1,  name: "Спред растительно-сливочный",  category: "Спреды",         emoji: "🧈", desc: "Жирность 72.5%, брикеты 180 г и 500 г" },
+  { id: 2,  name: "Спред сливочно-растительный",  category: "Спреды",         emoji: "🧈", desc: "Жирность 82.5%, фасовка по заказу" },
+  { id: 3,  name: "Спред «Молочный Вальс»",       category: "Спреды",         emoji: "🧈", desc: "Собственная ТМ. Мягкий вкус, натуральный состав" },
+  { id: 4,  name: "Масло сливочное ГОСТ",         category: "Масло",          emoji: "🫙", desc: "Жирность 82.5%, фольга 200 г / монолит 20 кг" },
+  { id: 5,  name: "Масло крестьянское",           category: "Масло",          emoji: "🫙", desc: "Жирность 72.5%, ГОСТ 32261-2013" },
+  { id: 6,  name: "Масло «Молочный Вальс»",       category: "Масло",          emoji: "🫙", desc: "Собственная ТМ. Традиционный рецепт" },
+  { id: 7,  name: "Сыр твёрдый «Российский»",    category: "Сыры",           emoji: "🧀", desc: "Жирность 50%, головки по 5–6 кг" },
+  { id: 8,  name: "Сыр полутвёрдый «Гауда»",     category: "Сыры",           emoji: "🧀", desc: "Жирность 45%, фасовка от 500 г" },
+  { id: 9,  name: "Сыр «Молочный Вальс»",         category: "Сыры",           emoji: "🧀", desc: "Собственная ТМ. Нежный и ароматный" },
+  { id: 10, name: "Топлёная смесь классическая",  category: "Топлёные смеси", emoji: "✨", desc: "Жирность 99%, монолит 25 кг" },
+  { id: 11, name: "Топлёная смесь премиум",       category: "Топлёные смеси", emoji: "✨", desc: "Высшая очистка, нейтральный вкус" },
+  { id: 12, name: "Топлёное масло Ghee",          category: "Топлёное масло", emoji: "🫒", desc: "Жирность 99.9%, банки 0.5 л и 1 л" },
+  { id: 13, name: "Топлёное масло «Молочный Вальс»", category: "Топлёное масло", emoji: "🫒", desc: "Собственная ТМ. Традиционный деревенский рецепт" },
 ];
 
 const STATS = [
@@ -66,13 +67,12 @@ export default function Index() {
   const [activeSection, setActiveSection] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState("Все");
-  const [maxPrice, setMaxPrice] = useState(100000);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set(["home"]));
   const [form, setForm] = useState({ name: "", company: "", phone: "", message: "" });
   const [formStatus, setFormStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
 
   const filteredProducts = PRODUCTS.filter(p =>
-    (activeCategory === "Все" || p.category === activeCategory) && p.price <= maxPrice
+    activeCategory === "Все" || p.category === activeCategory
   );
 
   useEffect(() => {
@@ -277,6 +277,15 @@ export default function Index() {
               <p className="font-body text-base leading-relaxed mb-4" style={{ color: C.brown }}>
                 Работаем напрямую с производителями, держим цены честными и выстраиваем долгосрочные отношения — такие, когда партнёр звонит не по прайсу, а потому что доверяет.
               </p>
+              <div className="flex items-center gap-4 rounded-2xl p-4 mb-4"
+                style={{ background: `linear-gradient(135deg, ${C.gold}22, ${C.amber}11)`, border: `2px solid ${C.gold}66` }}>
+                <div className="text-4xl flex-shrink-0">🎵</div>
+                <div>
+                  <div className="font-hand text-base" style={{ color: C.amber }}>Наша собственная торговая марка</div>
+                  <div className="font-display text-2xl italic font-bold" style={{ color: C.earth }}>«Молочный Вальс»</div>
+                  <div className="font-body text-sm mt-1" style={{ color: C.brown }}>Спреды, масло, сыры и топлёные смеси под собственным брендом</div>
+                </div>
+              </div>
               <p className="font-body text-sm leading-relaxed mb-8 italic font-semibold px-4 py-3 rounded-xl"
                 style={{ color: C.grass, backgroundColor: `${C.meadow}18`, border: `1.5px solid ${C.meadow}44` }}>
                 📍 Мы находимся в Свердловской области, г. Екатеринбург — и работаем по всей России.
@@ -305,14 +314,12 @@ export default function Index() {
                   <div className="font-hand text-2xl" style={{ color: C.amber }}>Что мы поставляем</div>
                   <div className="w-28 h-1 mx-auto mt-2 rounded-full" style={{ background: `linear-gradient(90deg, ${C.gold}, ${C.meadow})` }} />
                 </div>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-2 gap-3">
                   {[
-                    { emoji: "🌾", label: "Зерновые", color: C.gold },
-                    { emoji: "🥔", label: "Овощи",    color: C.amber },
-                    { emoji: "🍎", label: "Фрукты",   color: C.red },
-                    { emoji: "🥛", label: "Молочное", color: '#4a90d9' },
-                    { emoji: "🫒", label: "Масла",    color: C.meadow },
-                    { emoji: "🥫", label: "Консервы", color: C.grass },
+                    { emoji: "🧈", label: "Спреды",          color: C.gold },
+                    { emoji: "🫙", label: "Масло",            color: C.amber },
+                    { emoji: "✨", label: "Топлёные смеси",   color: C.meadow },
+                    { emoji: "🧀", label: "Сыры",             color: C.grass },
                   ].map((cat, i) => (
                     <div key={i}
                       className="rounded-2xl p-4 text-center transition-all duration-300 cursor-default hover:scale-110 hover:-rotate-1"
@@ -321,6 +328,12 @@ export default function Index() {
                       <div className="font-body text-xs font-bold" style={{ color: C.brown }}>{cat.label}</div>
                     </div>
                   ))}
+                </div>
+                <div className="mt-4 rounded-2xl p-4 text-center"
+                  style={{ background: `linear-gradient(135deg, ${C.gold}22, ${C.amber}11)`, border: `2px solid ${C.gold}66` }}>
+                  <div className="text-2xl mb-1">🎵</div>
+                  <div className="font-hand text-base font-bold" style={{ color: C.amber }}>Собственная ТМ</div>
+                  <div className="font-display text-lg italic font-bold" style={{ color: C.earth }}>«Молочный Вальс»</div>
                 </div>
               </div>
               <div className="absolute -top-6 -right-6 text-6xl animate-float drop-shadow-2xl">🌻</div>
@@ -359,22 +372,13 @@ export default function Index() {
                   </button>
                 ))}
               </div>
-              <div className="flex flex-col gap-1.5 min-w-[220px]">
-                <div className="flex justify-between items-center">
-                  <span className="font-body text-sm font-semibold" style={{ color: C.brown }}>Цена до</span>
-                  <span className="font-body font-bold" style={{ color: C.amber }}>{maxPrice.toLocaleString()} ₽/т</span>
-                </div>
-                <input type="range" min={12000} max={100000} step={1000} value={maxPrice}
-                  onChange={e => setMaxPrice(Number(e.target.value))}
-                  className="w-full cursor-pointer accent-amber-600" />
-              </div>
             </div>
 
             {/* Карточки */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
               {filteredProducts.map(product => (
                 <div key={product.id}
-                  className="rounded-3xl p-5 group transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 cursor-default"
+                  className="rounded-3xl p-5 group transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 cursor-default flex flex-col"
                   style={{ backgroundColor: '#fff', border: `2px solid ${C.gold}44`, boxShadow: `0 4px 20px rgba(200,120,0,0.1)` }}>
                   <div className="flex items-start justify-between mb-3">
                     <div className="text-4xl group-hover:scale-110 transition-transform">{product.emoji}</div>
@@ -386,22 +390,14 @@ export default function Index() {
                   <h3 className="font-display text-lg font-bold italic mb-1 group-hover:text-amber-700 transition-colors" style={{ color: C.earth }}>
                     {product.name}
                   </h3>
-                  <p className="font-body text-sm leading-relaxed mb-4" style={{ color: C.brown, opacity: 0.8 }}>
+                  <p className="font-body text-sm leading-relaxed mb-4 flex-1" style={{ color: C.brown, opacity: 0.8 }}>
                     {product.desc}
                   </p>
-                  <div className="flex items-end justify-between">
-                    <div>
-                      <div className="font-display text-2xl font-bold italic" style={{ color: C.amber }}>
-                        {product.price.toLocaleString()} ₽
-                      </div>
-                      <div className="font-body text-xs" style={{ color: C.brown, opacity: 0.6 }}>за {product.unit}</div>
-                    </div>
-                    <button onClick={() => scrollTo("contacts")}
-                      className="text-xs font-body font-bold px-3 py-2 rounded-xl transition-all duration-200 hover:scale-105"
-                      style={{ background: `linear-gradient(135deg, ${C.earth}, ${C.brown})`, color: C.sunny, boxShadow: `0 3px 10px ${C.brown}55` }}>
-                      Запрос цены
-                    </button>
-                  </div>
+                  <button onClick={() => scrollTo("contacts")}
+                    className="w-full font-body font-bold text-sm py-2.5 rounded-xl transition-all duration-200 hover:scale-105"
+                    style={{ background: `linear-gradient(135deg, ${C.earth}, ${C.brown})`, color: C.sunny, boxShadow: `0 3px 10px ${C.brown}55` }}>
+                    Запрос цены
+                  </button>
                 </div>
               ))}
             </div>
