@@ -94,13 +94,17 @@ export default function HeroAboutCatalog({ isVisible, scrollTo, activeCategory, 
                 Работаем напрямую с производителями, держим цены честными и выстраиваем долгосрочные отношения — такие, когда партнёр звонит не по прайсу, а потому что доверяет.
               </p>
 
-              <div className="flex items-center gap-4 rounded-2xl p-4 mb-4"
+              <div className="flex items-center gap-5 rounded-2xl p-4 mb-4"
                 style={{ background: `linear-gradient(135deg, ${C.gold}22, ${C.amber}11)`, border: `2px solid ${C.gold}66` }}>
-                <div className="text-4xl flex-shrink-0">🎵</div>
+                <img
+                  src="https://cdn.poehali.dev/projects/3345e4d2-6a9b-485a-9bd1-384ca648e1e9/bucket/f56a5cac-5f68-4331-93f9-9dd21fcbec80.jpg"
+                  alt="Молочный Вальс"
+                  className="w-24 h-24 object-contain flex-shrink-0 rounded-xl"
+                />
                 <div>
                   <div className="font-hand text-base" style={{ color: C.amber }}>Наша собственная торговая марка</div>
                   <div className="font-display text-2xl italic font-bold" style={{ color: C.earth }}>«Молочный Вальс»</div>
-                  <div className="font-body text-sm mt-1" style={{ color: C.brown }}>Спреды, масло, сыры и топлёные смеси под собственным брендом</div>
+                  <div className="font-body text-sm mt-1" style={{ color: C.brown }}>Спреды, масло и топлёные смеси под собственным брендом</div>
                 </div>
               </div>
 
@@ -147,11 +151,17 @@ export default function HeroAboutCatalog({ isVisible, scrollTo, activeCategory, 
                     </div>
                   ))}
                 </div>
-                <div className="mt-4 rounded-2xl p-4 text-center"
+                <div className="mt-4 rounded-2xl p-4 flex items-center gap-4"
                   style={{ background: `linear-gradient(135deg, ${C.gold}22, ${C.amber}11)`, border: `2px solid ${C.gold}66` }}>
-                  <div className="text-2xl mb-1">🎵</div>
-                  <div className="font-hand text-base font-bold" style={{ color: C.amber }}>Собственная ТМ</div>
-                  <div className="font-display text-lg italic font-bold" style={{ color: C.earth }}>«Молочный Вальс»</div>
+                  <img
+                    src="https://cdn.poehali.dev/projects/3345e4d2-6a9b-485a-9bd1-384ca648e1e9/bucket/f56a5cac-5f68-4331-93f9-9dd21fcbec80.jpg"
+                    alt="Молочный Вальс"
+                    className="w-16 h-16 object-contain flex-shrink-0"
+                  />
+                  <div>
+                    <div className="font-hand text-sm" style={{ color: C.amber }}>Собственная ТМ</div>
+                    <div className="font-display text-lg italic font-bold" style={{ color: C.earth }}>«Молочный Вальс»</div>
+                  </div>
                 </div>
               </div>
               <div className="absolute -top-6 -right-6 text-6xl animate-float drop-shadow-2xl">🌻</div>
