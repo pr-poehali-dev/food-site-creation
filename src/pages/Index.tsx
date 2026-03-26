@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
-const HERO_IMAGE = "https://cdn.poehali.dev/projects/3345e4d2-6a9b-485a-9bd1-384ca648e1e9/files/52b1fdb0-4620-4087-94b2-55ae65850140.jpg";
+const HERO_IMAGE = "https://cdn.poehali.dev/projects/3345e4d2-6a9b-485a-9bd1-384ca648e1e9/files/6e42f7a6-0fb3-48af-bd31-b635bf8a60a5.jpg";
 
 const NAV_LINKS = [
   { id: "home", label: "Главная" },
@@ -42,8 +42,8 @@ const DOCS = [
 ];
 
 const TICKER_ITEMS = [
-  "🌾 Зерновые культуры", "🥔 Овощи оптом", "🍎 Фрукты", "🥛 Молочная продукция",
-  "🫒 Масла и жиры", "🥫 Консервы", "🚚 Доставка по России", "📋 Договор поставки",
+  "🫒 Масла и жиры", "🧈 Спреды", "🥛 Топлёные смеси", "✨ Топлёное масло",
+  "📋 Договор поставки", "🚚 Доставка по России", "🌾 Зерновые культуры", "🥫 Консервы",
 ];
 
 export default function Index() {
@@ -52,6 +52,33 @@ export default function Index() {
   const [activeCategory, setActiveCategory] = useState("Все");
   const [maxPrice, setMaxPrice] = useState(100000);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set(["home"]));
+  const [form, setForm] = useState({ name: "", company: "", phone: "", message: "" });
+  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
+
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.name || !form.phone) return;
+    setFormStatus("sending");
+    try {
+      const res = await fetch("https://functions.poehali.dev/3d8d3969-0789-45a9-938b-3b78ac5b9cba", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setFormStatus("ok");
+        setForm({ name: "", company: "", phone: "", message: "" });
+      } else {
+        setFormStatus("error");
+      }
+    } catch {
+      setFormStatus("error");
+    }
+  };
 
   const filteredProducts = PRODUCTS.filter(p => {
     const catOk = activeCategory === "Все" || p.category === activeCategory;
@@ -95,7 +122,7 @@ export default function Index() {
             className="font-display text-2xl font-bold cursor-pointer flex items-center gap-2"
             onClick={() => scrollTo("home")}
           >
-            <span className="text-brand-lime">АГРО</span>
+            <span className="text-brand-lime">ЮМА</span>
             <span className="text-white">ТРЕЙД</span>
           </div>
 
@@ -239,7 +266,7 @@ export default function Index() {
                 <span className="text-brand-lime">с 2012 года</span>
               </h2>
               <p className="font-body text-white/70 text-lg leading-relaxed mb-6">
-                АгроТрейд — оптовый поставщик продуктов питания с прямыми контрактами с производителями в 20+ регионах России. Мы обеспечиваем стабильные поставки для торговых сетей, производственных предприятий и компаний HoReCa.
+                ЮМА ТРЕЙД — оптовый поставщик продуктов питания с прямыми контрактами с производителями в 20+ регионах России. Мы обеспечиваем стабильные поставки для торговых сетей, производственных предприятий и компаний HoReCa.
               </p>
               <p className="font-body text-white/60 text-base leading-relaxed mb-8">
                 Работаем с сертифицированными производителями, обеспечиваем полный пакет документов: ТТН, сертификаты соответствия, ветеринарные свидетельства.
@@ -506,47 +533,81 @@ export default function Index() {
                 </div>
               </div>
 
-              <div className="bg-white/5 border border-white/10 rounded-3xl p-8">
+              <form onSubmit={handleFormSubmit} className="bg-white/5 border border-white/10 rounded-3xl p-8">
                 <h3 className="font-display text-xl font-bold text-white mb-6">Оставить заявку</h3>
-                <div className="space-y-4">
-                  <div>
-                    <label className="font-body text-xs text-white/50 mb-2 block">Ваше имя</label>
-                    <input
-                      type="text"
-                      placeholder="Иван Петров"
-                      className="w-full bg-white/10 border border-white/20 focus:border-brand-lime text-white placeholder:text-white/30 font-body rounded-xl px-4 py-3 outline-none transition-colors"
-                    />
+                {formStatus === "ok" ? (
+                  <div className="flex flex-col items-center justify-center py-12 gap-4">
+                    <div className="text-5xl">✅</div>
+                    <div className="font-display text-xl font-bold text-brand-lime text-center">Заявка отправлена!</div>
+                    <div className="font-body text-white/60 text-center">Мы свяжемся с вами в течение 30 минут</div>
+                    <button type="button" onClick={() => setFormStatus("idle")} className="mt-4 text-white/40 hover:text-white font-body text-sm underline">
+                      Отправить ещё
+                    </button>
                   </div>
-                  <div>
-                    <label className="font-body text-xs text-white/50 mb-2 block">Компания</label>
-                    <input
-                      type="text"
-                      placeholder="ООО «Пример»"
-                      className="w-full bg-white/10 border border-white/20 focus:border-brand-lime text-white placeholder:text-white/30 font-body rounded-xl px-4 py-3 outline-none transition-colors"
-                    />
+                ) : (
+                  <div className="space-y-4">
+                    <div>
+                      <label className="font-body text-xs text-white/50 mb-2 block">Ваше имя *</label>
+                      <input
+                        type="text"
+                        name="name"
+                        value={form.name}
+                        onChange={handleFormChange}
+                        required
+                        placeholder="Иван Петров"
+                        className="w-full bg-white/10 border border-white/20 focus:border-brand-lime text-white placeholder:text-white/30 font-body rounded-xl px-4 py-3 outline-none transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label className="font-body text-xs text-white/50 mb-2 block">Компания</label>
+                      <input
+                        type="text"
+                        name="company"
+                        value={form.company}
+                        onChange={handleFormChange}
+                        placeholder="ООО «Пример»"
+                        className="w-full bg-white/10 border border-white/20 focus:border-brand-lime text-white placeholder:text-white/30 font-body rounded-xl px-4 py-3 outline-none transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label className="font-body text-xs text-white/50 mb-2 block">Телефон *</label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={form.phone}
+                        onChange={handleFormChange}
+                        required
+                        placeholder="+7 (___) ___-__-__"
+                        className="w-full bg-white/10 border border-white/20 focus:border-brand-lime text-white placeholder:text-white/30 font-body rounded-xl px-4 py-3 outline-none transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label className="font-body text-xs text-white/50 mb-2 block">Что интересует?</label>
+                      <textarea
+                        rows={3}
+                        name="message"
+                        value={form.message}
+                        onChange={handleFormChange}
+                        placeholder="Опишите потребность или укажите интересующие позиции..."
+                        className="w-full bg-white/10 border border-white/20 focus:border-brand-lime text-white placeholder:text-white/30 font-body rounded-xl px-4 py-3 outline-none transition-colors resize-none"
+                      />
+                    </div>
+                    {formStatus === "error" && (
+                      <div className="text-red-400 font-body text-sm text-center">
+                        Ошибка отправки. Пожалуйста, позвоните нам напрямую.
+                      </div>
+                    )}
+                    <button
+                      type="submit"
+                      disabled={formStatus === "sending"}
+                      className="w-full bg-brand-lime text-brand-dark font-display font-bold text-lg py-4 rounded-xl hover:bg-white transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
+                    >
+                      <Icon name={formStatus === "sending" ? "Loader" : "Send"} size={20} />
+                      {formStatus === "sending" ? "Отправляем..." : "Отправить заявку"}
+                    </button>
                   </div>
-                  <div>
-                    <label className="font-body text-xs text-white/50 mb-2 block">Телефон</label>
-                    <input
-                      type="tel"
-                      placeholder="+7 (___) ___-__-__"
-                      className="w-full bg-white/10 border border-white/20 focus:border-brand-lime text-white placeholder:text-white/30 font-body rounded-xl px-4 py-3 outline-none transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label className="font-body text-xs text-white/50 mb-2 block">Что интересует?</label>
-                    <textarea
-                      rows={3}
-                      placeholder="Опишите потребность или укажите интересующие позиции..."
-                      className="w-full bg-white/10 border border-white/20 focus:border-brand-lime text-white placeholder:text-white/30 font-body rounded-xl px-4 py-3 outline-none transition-colors resize-none"
-                    />
-                  </div>
-                  <button className="w-full bg-brand-lime text-brand-dark font-display font-bold text-lg py-4 rounded-xl hover:bg-white transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2">
-                    <Icon name="Send" size={20} />
-                    Отправить заявку
-                  </button>
-                </div>
-              </div>
+                )}
+              </form>
             </div>
           </div>
         </div>
@@ -557,7 +618,7 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="font-display text-2xl font-bold">
-              <span className="text-brand-lime">АГРО</span>
+              <span className="text-brand-lime">ЮМА</span>
               <span className="text-white">ТРЕЙД</span>
             </div>
             <div className="flex flex-wrap justify-center gap-6">
@@ -572,7 +633,7 @@ export default function Index() {
               ))}
             </div>
             <div className="font-body text-sm text-white/30 text-center">
-              © 2024 АгроТрейд. Все права защищены.
+              © 2024 ЮМА ТРЕЙД. Все права защищены.
             </div>
           </div>
         </div>
