@@ -35,11 +35,8 @@ export default function SiteHeader({ activeSection, menuOpen, setMenuOpen, scrol
           </nav>
 
           <a href="tel:+74951234567"
-            className="hidden md:flex items-center gap-2 font-body font-bold text-sm px-5 py-2.5 rounded-full transition-all duration-200 hover:scale-105"
-            style={{ background: `linear-gradient(135deg, ${C.gold} 0%, ${C.amber} 100%)`, color: C.earth, boxShadow: `0 4px 16px ${C.amber}66` }}>
-            <Icon name="Phone" size={14} />
-            +7 (495) 123-45-67
-          </a>
+            className="hidden md:flex items-center gap-2 font-body text-sm px-5 py-2.5 rounded-full transition-all duration-200 hover:scale-105 font-extrabold"
+            style={{ background: `linear-gradient(135deg, ${C.gold} 0%, ${C.amber} 100%)`, color: C.earth, boxShadow: `0 4px 16px ${C.amber}66` }}>+7 963 041 71 69</a>
 
           <button className="md:hidden" style={{ color: C.gold }} onClick={() => setMenuOpen(!menuOpen)}>
             <Icon name={menuOpen ? "X" : "Menu"} size={26} />
