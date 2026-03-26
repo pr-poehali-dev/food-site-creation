@@ -90,10 +90,10 @@ export default function PriceContacts({
             <div className="grid lg:grid-cols-2 gap-10">
               <div className="space-y-4">
                 {[
-                  { emoji: "📞", label: "Телефон",     value: "+7 (495) 123-45-67",                    href: "tel:+74951234567",        color: C.meadow },
-                  { emoji: "📧", label: "Email",        value: "info@yumatrade.ru",                     href: "mailto:info@yumatrade.ru",color: '#4a90d9' },
-                  { emoji: "📍", label: "Адрес",        value: "г. Екатеринбург, Свердловская область", href: "#",                       color: C.amber },
-                  { emoji: "🕘", label: "Режим работы", value: "Пн–Пт: 9:00–18:00",                    href: "#",                       color: C.gold },
+                  { emoji: "📞", label: "Общий телефон",  value: "8 963 041 71 69",                                                                    href: "tel:+79630417169", color: C.meadow },
+                  { emoji: "📧", label: "Общая почта",    value: "info@umotrade.ru",                                                                    href: "mailto:info@umotrade.ru", color: '#4a90d9' },
+                  { emoji: "📍", label: "Адрес",          value: "г. Екатеринбург, ул. Машинная, д. 42а, оф. 203, Свердловская область",               href: "#", color: C.amber },
+                  { emoji: "🕘", label: "Режим работы",   value: "Пн–Пт: 9:00–18:00",                                                                  href: "#", color: C.gold },
                 ].map((contact, i) => (
                   <a key={i} href={contact.href}
                     className="flex items-center gap-5 rounded-2xl p-5 transition-all duration-300 group hover:scale-[1.02] hover:-translate-y-0.5"
@@ -108,6 +108,26 @@ export default function PriceContacts({
                     </div>
                   </a>
                 ))}
+
+                <div className="rounded-2xl p-5 space-y-3"
+                  style={{ backgroundColor: '#fff', border: `2px solid ${C.gold}33`, boxShadow: `0 4px 20px ${C.gold}18` }}>
+                  <div className="font-body text-xs font-semibold mb-2" style={{ color: C.brown }}>Отделы компании</div>
+                  {[
+                    { dept: "Отдел продаж",           email: "headsales@umotrade.ru", person: "Михаил Полевской", phone: "8 963 041 71 69" },
+                    { dept: "Отдел приёма заказов",   email: "order@umotrade.ru",     person: "Алёна Ж" },
+                    { dept: "Отдел снабжения",        email: "supply@umotrade.ru",    person: "Алёна Р" },
+                    { dept: "Региональный отдел",     email: "region@umotrade.ru",    person: "Оксана" },
+                  ].map((d, i) => (
+                    <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 py-2 border-b last:border-0"
+                      style={{ borderColor: `${C.gold}22` }}>
+                      <div>
+                        <div className="font-body text-xs font-bold" style={{ color: C.earth }}>{d.dept}</div>
+                        <div className="font-body text-xs" style={{ color: C.brown }}>{d.person}{d.phone ? ` · ${d.phone}` : ''}</div>
+                      </div>
+                      <a href={`mailto:${d.email}`} className="font-body text-xs font-semibold hover:underline" style={{ color: '#4a90d9' }}>{d.email}</a>
+                    </div>
+                  ))}
+                </div>
 
                 <div className="flex gap-3 pt-2">
                   {[
