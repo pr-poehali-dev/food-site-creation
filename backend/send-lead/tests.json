@@ -12,6 +12,20 @@
       "path": "/",
       "body": {"company": "Test"},
       "expectedStatus": 400
+    },
+    {
+      "name": "Send test lead email",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Тест",
+        "phone": "+7 999 000 00 00",
+        "company": "Тестовая компания",
+        "message": "Это тестовая заявка с сайта — проверка формы обратной связи"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {"success": true},
+      "bodyMatcher": "partial"
     }
   ]
 }

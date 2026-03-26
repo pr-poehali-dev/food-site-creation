@@ -32,7 +32,7 @@ def handler(event: dict, context) -> dict:
         return {"statusCode": 400, "headers": cors_headers, "body": json.dumps({"error": "Name and phone required"})}
 
     smtp_host = os.environ.get("SMTP_HOST", "smtp.yandex.ru")
-    smtp_port = int(os.environ.get("SMTP_PORT", "465"))
+    smtp_port = int(os.environ.get("SMTP_PORT", "587"))
     smtp_user = os.environ.get("SMTP_USER", "")
     smtp_password = os.environ.get("SMTP_PASSWORD", "")
     recipient = os.environ.get("LEAD_EMAIL", smtp_user)
@@ -69,7 +69,8 @@ def handler(event: dict, context) -> dict:
     msg["To"] = recipient
     msg.attach(MIMEText(html_body, "html", "utf-8"))
 
-    with smtplib.SMTP_SSL(smtp_host, smtp_port) as server:
+    with smtplib.SMTP(smtp_host, smtp_port) as server:
+        server.starttls()
         server.login(smtp_user, smtp_password)
         server.sendmail(smtp_user, [recipient], msg.as_string())
 
