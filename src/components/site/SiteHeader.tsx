@@ -17,7 +17,7 @@ export default function SiteHeader({ activeSection, menuOpen, setMenuOpen, scrol
           <button onClick={() => scrollTo("home")} className="flex items-center gap-2 group">
             <span className="text-3xl group-hover:scale-110 transition-transform duration-200">🌾</span>
             <div className="leading-none">
-              <div className="font-display text-xl font-bold italic" style={{ color: C.sunny }}>ЮМА ТРЕЙД</div>
+              <div className="font-display text-xl font-bold italic" style={{ color: C.sunny }}>ЮМО ТРЕЙД</div>
               <div className="font-hand text-xs" style={{ color: C.straw, opacity: 0.9 }}>продукты питания</div>
             </div>
           </button>
