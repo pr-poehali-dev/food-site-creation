@@ -113,17 +113,14 @@ export default function PriceContacts({
                   style={{ backgroundColor: '#fff', border: `2px solid ${C.gold}33`, boxShadow: `0 4px 20px ${C.gold}18` }}>
                   <div className="font-body text-xs font-semibold mb-2" style={{ color: C.brown }}>Отделы компании</div>
                   {[
-                    { dept: "Отдел продаж",           email: "headsales@umotrade.ru", person: "Михаил Полевской", phone: "8 963 041 71 69" },
-                    { dept: "Отдел приёма заказов",   email: "order@umotrade.ru",     person: "Алёна Ж" },
-                    { dept: "Отдел снабжения",        email: "supply@umotrade.ru",    person: "Алёна Р" },
-                    { dept: "Региональный отдел",     email: "region@umotrade.ru",    person: "Оксана" },
+                    { dept: "Отдел продаж",         email: "headsales@umotrade.ru" },
+                    { dept: "Отдел приёма заказов", email: "order@umotrade.ru" },
+                    { dept: "Отдел снабжения",      email: "supply@umotrade.ru" },
+                    { dept: "Региональный отдел",   email: "region@umotrade.ru" },
                   ].map((d, i) => (
                     <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 py-2 border-b last:border-0"
                       style={{ borderColor: `${C.gold}22` }}>
-                      <div>
-                        <div className="font-body text-xs font-bold" style={{ color: C.earth }}>{d.dept}</div>
-                        <div className="font-body text-xs" style={{ color: C.brown }}>{d.person}{d.phone ? ` · ${d.phone}` : ''}</div>
-                      </div>
+                      <div className="font-body text-xs font-bold" style={{ color: C.earth }}>{d.dept}</div>
                       <a href={`mailto:${d.email}`} className="font-body text-xs font-semibold hover:underline" style={{ color: '#4a90d9' }}>{d.email}</a>
                     </div>
                   ))}
