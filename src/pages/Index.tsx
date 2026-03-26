@@ -216,12 +216,12 @@ export default function Index() {
             </div>
 
             <h1 className="font-display font-bold italic leading-none mb-5" style={{ fontSize: 'clamp(2.8rem, 7vw, 5.5rem)', color: '#ffffff', textShadow: '0 4px 24px rgba(0,0,0,0.6)' }}>
-              Настоящие продукты<br />
-              <span style={{ color: C.sunny, textShadow: `0 0 40px ${C.gold}99, 0 4px 16px rgba(0,0,0,0.5)` }}>с родной земли</span>
+              Настоящий вкус —<br />
+              <span style={{ color: C.sunny, textShadow: `0 0 40px ${C.gold}99, 0 4px 16px rgba(0,0,0,0.5)` }}>честная цена</span>
             </h1>
 
             <p className="font-body text-lg mb-10 max-w-xl leading-relaxed" style={{ color: 'rgba(255,240,160,0.85)' }}>
-              Поставки масел, спредов и продовольствия оптом — от поля до вашего склада. Работаем честно, как в деревне.
+              Качество без переплат — масла, спреды и сыры оптом напрямую от производителя. Потому что хорошая еда должна быть доступной.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-14">
