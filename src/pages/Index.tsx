@@ -29,10 +29,10 @@ const PRODUCTS = [
 ];
 
 const STATS = [
-  { value: "12+",      label: "лет на рынке",        emoji: "🌻" },
-  { value: "500+",     label: "партнёров по России",  emoji: "🤝" },
-  { value: "85",       label: "регионов поставок",    emoji: "🗺️" },
-  { value: "50 000+",  label: "тонн в год",           emoji: "🚜" },
+  { value: "Екб",      label: "Свердловская область",  emoji: "📍" },
+  { value: "500+",     label: "партнёров по России",   emoji: "🤝" },
+  { value: "85",       label: "регионов поставок",     emoji: "🗺️" },
+  { value: "50 000+",  label: "тонн в год",            emoji: "🚜" },
 ];
 
 const DOCS = [
@@ -272,15 +272,21 @@ export default function Index() {
             <div>
               <div className="font-hand text-brand-amber text-xl mb-2">О нашей компании</div>
               <h2 className="font-display text-4xl md:text-5xl font-bold italic leading-tight mb-2" style={{ color: '#3d2008' }}>
-                Надёжный партнёр
+                Молодые, но надёжные
               </h2>
-              <div className="font-display text-2xl italic mb-6" style={{ color: '#c8812a' }}>с 2012 года</div>
+              <div className="font-display text-2xl italic mb-6" style={{ color: '#c8812a' }}>с душой к делу</div>
 
               <p className="font-body text-base leading-relaxed mb-4" style={{ color: '#4a2a10' }}>
-                ЮМА ТРЕЙД — оптовый поставщик продуктов питания с прямыми контрактами с производителями в 20+ регионах России. Мы обеспечиваем стабильные поставки для торговых сетей, производственных предприятий и HoReCa.
+                Компания ЮМА ТРЕЙД на рынке недавно, но уже успела завоевать доверие партнёров по всей России — честным словом, прозрачными условиями и строгим отношением к качеству каждой поставки.
               </p>
-              <p className="font-body text-sm leading-relaxed mb-8" style={{ color: '#6b3a1f' }}>
-                Работаем с сертифицированными производителями, обеспечиваем полный пакет документов: ТТН, сертификаты соответствия, ветеринарные свидетельства.
+              <p className="font-body text-base leading-relaxed mb-4" style={{ color: '#4a2a10' }}>
+                Мы не гонимся за объёмами ради объёмов. Нам важно, чтобы каждый клиент получил именно то, что ожидал: свежий товар, полный пакет документов и живое человеческое общение — без скриптов и бюрократии.
+              </p>
+              <p className="font-body text-base leading-relaxed mb-4" style={{ color: '#4a2a10' }}>
+                Работаем напрямую с производителями, держим цены честными и выстраиваем долгосрочные отношения — такие, когда партнёр звонит не по прайсу, а потому что доверяет.
+              </p>
+              <p className="font-body text-sm leading-relaxed mb-8 italic" style={{ color: '#8b5e3c' }}>
+                📍 Мы находимся в Свердловской области, г. Екатеринбург — и работаем по всей России.
               </p>
 
               <div className="grid grid-cols-2 gap-3">
