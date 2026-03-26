@@ -82,12 +82,8 @@ export default function HeroAboutCatalog({ isVisible, scrollTo, activeCategory, 
               </h2>
               <div className="font-display text-2xl italic mb-6" style={{ color: C.amber }}>с душой к делу</div>
 
-              <p className="font-body text-base leading-relaxed mb-4" style={{ color: C.brown }}>
-                Компания ЮМА ТРЕЙД на рынке недавно, но уже успела завоевать доверие партнёров по всей России — честным словом, прозрачными условиями и строгим отношением к качеству каждой поставки.
-              </p>
-              <p className="font-body text-base leading-relaxed mb-4" style={{ color: C.brown }}>
-                Мы не гонимся за объёмами ради объёмов. Нам важно, чтобы каждый клиент получил именно то, что ожидал: свежий товар, полный пакет документов и живое человеческое общение — без скриптов и бюрократии.
-              </p>
+              <p className="font-body text-base leading-relaxed mb-4" style={{ color: C.brown }}>Компания ЮМОТРЕЙД на рынке недавно, но уже успела завоевать доверие партнёров по всей России — честным словом, прозрачными условиями и строгим отношением к качеству каждой поставки.</p>
+              <p className="font-body text-base leading-relaxed mb-4" style={{ color: C.brown }}>Мы не гонимся за объёмами ради объёмов. Нам важно, чтобы каждый клиент получил именно то, что ожидал: свежий товар, полный пакет документов.</p>
               <p className="font-body text-base leading-relaxed mb-4" style={{ color: C.brown }}>
                 Работаем напрямую с производителями, держим цены честными и выстраиваем долгосрочные отношения — такие, когда партнёр звонит не по прайсу, а потому что доверяет.
               </p>
