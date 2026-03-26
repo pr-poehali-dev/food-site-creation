@@ -39,9 +39,7 @@ export default function HeroAboutCatalog({ isVisible, scrollTo, activeCategory, 
               <span style={{ color: C.sunny, textShadow: `0 0 40px ${C.gold}99, 0 4px 16px rgba(0,0,0,0.5)` }}>честная цена</span>
             </h1>
 
-            <p className="font-body text-lg mb-10 max-w-xl leading-relaxed" style={{ color: 'rgba(255,240,160,0.85)' }}>
-              Качество без переплат — масла, спреды и сыры оптом напрямую от производителя. Потому что хорошая еда должна быть доступной.
-            </p>
+            <p className="font-body text-lg mb-10 max-w-xl leading-relaxed" style={{ color: 'rgba(255,240,160,0.85)' }}>Качество без переплат — масла, спреды, топленые смеси и сыры оптом напрямую от производителя. </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-14">
               <button onClick={() => scrollTo("catalog")}
