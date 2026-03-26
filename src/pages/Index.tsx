@@ -3,6 +3,22 @@ import Icon from "@/components/ui/icon";
 
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/3345e4d2-6a9b-485a-9bd1-384ca648e1e9/files/543d7606-0cf8-4aec-88e3-aab3f77274a1.jpg";
 
+// ── Палитра ──────────────────────────────────────────────
+const C = {
+  earth:  '#2a1200',   // очень тёмный тёмно-коричневый фон шапки
+  brown:  '#5c2d0a',   // коричневый
+  amber:  '#d4780a',   // насыщенный оранжево-янтарный
+  gold:   '#f0a500',   // яркое золото
+  sunny:  '#ffd130',   // солнечно-жёлтый
+  straw:  '#fff0a0',   // соломенный светлый
+  cream:  '#fffbef',   // молочный фон
+  warm:   '#fff5d6',   // чуть желтее
+  grass:  '#2e7d1e',   // сочный луговой зелёный
+  meadow: '#4caf32',   // яркая зелень
+  leaf:   '#7dd44a',   // светло-зелёный
+  red:    '#c0392b',   // акцент красный
+};
+
 const NAV_LINKS = [
   { id: "home",     label: "Главная" },
   { id: "about",   label: "О нас" },
@@ -14,39 +30,37 @@ const NAV_LINKS = [
 const CATEGORIES = ["Все", "Зерновые", "Овощи", "Фрукты", "Молочное", "Консервы", "Масла и жиры"];
 
 const PRODUCTS = [
-  { id: 1,  name: "Пшеница 3 класс",         category: "Зерновые",    price: 12500, unit: "тонна", emoji: "🌾", desc: "ГОСТ 9353-2016, влажность до 14%" },
-  { id: 2,  name: "Сахар-песок",              category: "Зерновые",    price: 58000, unit: "тонна", emoji: "🍬", desc: "ГОСТ 21-94, мешки по 50 кг" },
-  { id: 3,  name: "Мука пшеничная в/с",       category: "Зерновые",    price: 24000, unit: "тонна", emoji: "🫙", desc: "ГОСТ 26574-2017, фасовка 50 кг" },
-  { id: 4,  name: "Картофель столовый",       category: "Овощи",       price: 18000, unit: "тонна", emoji: "🥔", desc: "Сортовой, калибр 50+, мешки 30 кг" },
-  { id: 5,  name: "Морковь столовая",         category: "Овощи",       price: 22000, unit: "тонна", emoji: "🥕", desc: "Мытая, фасовка сетки по 25 кг" },
-  { id: 6,  name: "Капуста белокочанная",     category: "Овощи",       price: 15000, unit: "тонна", emoji: "🥬", desc: "Поздних сортов, от 1 кг" },
-  { id: 7,  name: "Яблоки Голден",            category: "Фрукты",      price: 65000, unit: "тонна", emoji: "🍎", desc: "Калибр 65+, ящики по 18 кг" },
-  { id: 8,  name: "Масло подсолнечное",       category: "Масла и жиры",price: 95000, unit: "тонна", emoji: "🫒", desc: "Рафинированное, ПЭТ-бутылки 5 л" },
-  { id: 9,  name: "Молоко пастеризованное",   category: "Молочное",    price: 48000, unit: "тонна", emoji: "🥛", desc: "Жирность 3.2%, Тетра Пак 1 л" },
-  { id: 10, name: "Консервы томатные",        category: "Консервы",    price: 72000, unit: "тонна", emoji: "🥫", desc: "Паста томатная, жестяные банки 3 кг" },
-  { id: 11, name: "Гречиха ядрица",           category: "Зерновые",    price: 35000, unit: "тонна", emoji: "🫘", desc: "1 сорт, ГОСТ Р 55290-2012" },
-  { id: 12, name: "Лук репчатый",             category: "Овощи",       price: 16000, unit: "тонна", emoji: "🧅", desc: "Сортовой, сетки по 25 кг" },
+  { id: 1,  name: "Пшеница 3 класс",       category: "Зерновые",    price: 12500, unit: "тонна", emoji: "🌾", desc: "ГОСТ 9353-2016, влажность до 14%" },
+  { id: 2,  name: "Сахар-песок",            category: "Зерновые",    price: 58000, unit: "тонна", emoji: "🍬", desc: "ГОСТ 21-94, мешки по 50 кг" },
+  { id: 3,  name: "Мука пшеничная в/с",     category: "Зерновые",    price: 24000, unit: "тонна", emoji: "🫙", desc: "ГОСТ 26574-2017, фасовка 50 кг" },
+  { id: 4,  name: "Картофель столовый",     category: "Овощи",       price: 18000, unit: "тонна", emoji: "🥔", desc: "Сортовой, калибр 50+, мешки 30 кг" },
+  { id: 5,  name: "Морковь столовая",       category: "Овощи",       price: 22000, unit: "тонна", emoji: "🥕", desc: "Мытая, фасовка сетки по 25 кг" },
+  { id: 6,  name: "Капуста белокочанная",   category: "Овощи",       price: 15000, unit: "тонна", emoji: "🥬", desc: "Поздних сортов, от 1 кг" },
+  { id: 7,  name: "Яблоки Голден",          category: "Фрукты",      price: 65000, unit: "тонна", emoji: "🍎", desc: "Калибр 65+, ящики по 18 кг" },
+  { id: 8,  name: "Масло подсолнечное",     category: "Масла и жиры",price: 95000, unit: "тонна", emoji: "🫒", desc: "Рафинированное, ПЭТ-бутылки 5 л" },
+  { id: 9,  name: "Молоко пастеризованное", category: "Молочное",    price: 48000, unit: "тонна", emoji: "🥛", desc: "Жирность 3.2%, Тетра Пак 1 л" },
+  { id: 10, name: "Консервы томатные",      category: "Консервы",    price: 72000, unit: "тонна", emoji: "🥫", desc: "Паста томатная, жестяные банки 3 кг" },
+  { id: 11, name: "Гречиха ядрица",         category: "Зерновые",    price: 35000, unit: "тонна", emoji: "🫘", desc: "1 сорт, ГОСТ Р 55290-2012" },
+  { id: 12, name: "Лук репчатый",           category: "Овощи",       price: 16000, unit: "тонна", emoji: "🧅", desc: "Сортовой, сетки по 25 кг" },
 ];
 
 const STATS = [
-  { value: "Екб",      label: "Свердловская область",  emoji: "📍" },
-  { value: "500+",     label: "партнёров по России",   emoji: "🤝" },
-  { value: "85",       label: "регионов поставок",     emoji: "🗺️" },
-  { value: "50 000+",  label: "тонн в год",            emoji: "🚜" },
+  { value: "Екб",     label: "Свердловская область", emoji: "📍" },
+  { value: "500+",    label: "партнёров по России",  emoji: "🤝" },
+  { value: "85",      label: "регионов поставок",    emoji: "🗺️" },
+  { value: "50 000+", label: "тонн в год",           emoji: "🚜" },
 ];
 
 const DOCS = [
-  { name: "Прайс-лист",       desc: "Актуальные цены на все позиции",      icon: "FileText",  emoji: "📋" },
-  { name: "Договор поставки", desc: "Типовой договор для партнёров",       icon: "FileCheck", emoji: "📝" },
-  { name: "Реквизиты",        desc: "Банковские и юридические данные",     icon: "Building2", emoji: "🏦" },
+  { name: "Прайс-лист",       desc: "Актуальные цены на все позиции",  icon: "FileText",  emoji: "📋", bg: C.gold },
+  { name: "Договор поставки", desc: "Типовой договор для партнёров",   icon: "FileCheck", emoji: "📝", bg: C.meadow },
+  { name: "Реквизиты",        desc: "Банковские и юридические данные", icon: "Building2", emoji: "🏦", bg: C.amber },
 ];
 
 const TICKER_ITEMS = [
   "🫒 Масла и жиры", "🧈 Спреды", "🥛 Топлёные смеси", "✨ Топлёное масло",
   "📋 Договор поставки", "🚚 Доставка по России",
 ];
-
-const DIVIDER = "— ✦ —";
 
 export default function Index() {
   const [activeSection, setActiveSection] = useState("home");
@@ -57,22 +71,18 @@ export default function Index() {
   const [form, setForm] = useState({ name: "", company: "", phone: "", message: "" });
   const [formStatus, setFormStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
 
-  const filteredProducts = PRODUCTS.filter(p => {
-    const catOk = activeCategory === "Все" || p.category === activeCategory;
-    const priceOk = p.price <= maxPrice;
-    return catOk && priceOk;
-  });
+  const filteredProducts = PRODUCTS.filter(p =>
+    (activeCategory === "Все" || p.category === activeCategory) && p.price <= maxPrice
+  );
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setVisibleSections(prev => new Set([...prev, entry.target.id]));
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
+      entries => entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setVisibleSections(prev => new Set([...prev, entry.target.id]));
+          setActiveSection(entry.target.id);
+        }
+      }),
       { threshold: 0.1 }
     );
     NAV_LINKS.forEach(link => {
@@ -89,9 +99,8 @@ export default function Index() {
 
   const isVisible = (id: string) => visibleSections.has(id);
 
-  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
-  };
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -103,48 +112,36 @@ export default function Index() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-      if (res.ok) {
-        setFormStatus("ok");
-        setForm({ name: "", company: "", phone: "", message: "" });
-      } else {
-        setFormStatus("error");
-      }
-    } catch {
-      setFormStatus("error");
-    }
+      if (res.ok) { setFormStatus("ok"); setForm({ name: "", company: "", phone: "", message: "" }); }
+      else setFormStatus("error");
+    } catch { setFormStatus("error"); }
   };
 
   return (
-    <div className="min-h-screen font-body overflow-x-hidden" style={{ backgroundColor: '#fdf6e3' }}>
+    <div className="min-h-screen font-body overflow-x-hidden" style={{ backgroundColor: C.cream }}>
 
-      {/* ═══ NAVBAR ═══ */}
-      <header className="fixed top-0 left-0 right-0 z-50" style={{ backgroundColor: '#3d2008', borderBottom: '3px solid #c8812a' }}>
+      {/* ══════════════════════════════════════
+          NAVBAR
+      ══════════════════════════════════════ */}
+      <header className="fixed top-0 left-0 right-0 z-50" style={{ background: `linear-gradient(135deg, ${C.earth} 0%, ${C.brown} 100%)`, borderBottom: `4px solid ${C.gold}`, boxShadow: '0 4px 24px rgba(0,0,0,0.35)' }}>
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
-
-          {/* Logo */}
-          <button onClick={() => scrollTo("home")} className="flex items-center gap-2">
-            <span className="text-3xl">🌾</span>
+          <button onClick={() => scrollTo("home")} className="flex items-center gap-2 group">
+            <span className="text-3xl group-hover:scale-110 transition-transform duration-200">🌾</span>
             <div className="leading-none">
-              <div className="font-display text-xl font-bold italic" style={{ color: '#e8b84b' }}>
-                ЮМА ТРЕЙД
-              </div>
-              <div className="font-hand text-xs" style={{ color: '#f4d98a', opacity: 0.8 }}>
-                продукты питания
-              </div>
+              <div className="font-display text-xl font-bold italic" style={{ color: C.sunny }}>ЮМА ТРЕЙД</div>
+              <div className="font-hand text-xs" style={{ color: C.straw, opacity: 0.9 }}>продукты питания</div>
             </div>
           </button>
 
-          {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-1">
             {NAV_LINKS.map(link => (
               <button
                 key={link.id}
                 onClick={() => scrollTo(link.id)}
-                className="font-body text-sm px-4 py-2 rounded-full transition-all duration-200"
-                style={{
-                  color: activeSection === link.id ? '#3d2008' : '#f4d98a',
-                  backgroundColor: activeSection === link.id ? '#e8b84b' : 'transparent',
-                }}
+                className="font-body text-sm px-4 py-2 rounded-full transition-all duration-200 font-semibold"
+                style={activeSection === link.id
+                  ? { backgroundColor: C.gold, color: C.earth, boxShadow: `0 0 14px ${C.gold}88` }
+                  : { color: C.straw }}
               >
                 {link.label}
               </button>
@@ -153,279 +150,255 @@ export default function Index() {
 
           <a
             href="tel:+74951234567"
-            className="hidden md:flex items-center gap-2 font-body font-semibold text-sm px-4 py-2 rounded-full transition-all duration-200 hover:opacity-80"
-            style={{ backgroundColor: '#c8812a', color: '#fdf6e3' }}
+            className="hidden md:flex items-center gap-2 font-body font-bold text-sm px-5 py-2.5 rounded-full transition-all duration-200 hover:scale-105"
+            style={{ background: `linear-gradient(135deg, ${C.gold} 0%, ${C.amber} 100%)`, color: C.earth, boxShadow: `0 4px 16px ${C.amber}66` }}
           >
             <Icon name="Phone" size={14} />
             +7 (495) 123-45-67
           </a>
 
-          <button className="md:hidden" style={{ color: '#f4d98a' }} onClick={() => setMenuOpen(!menuOpen)}>
-            <Icon name={menuOpen ? "X" : "Menu"} size={24} />
+          <button className="md:hidden" style={{ color: C.gold }} onClick={() => setMenuOpen(!menuOpen)}>
+            <Icon name={menuOpen ? "X" : "Menu"} size={26} />
           </button>
         </div>
 
         {menuOpen && (
-          <div className="md:hidden px-4 py-4 flex flex-col gap-2" style={{ backgroundColor: '#4a2a10', borderTop: '1px solid #c8812a' }}>
+          <div className="md:hidden px-4 py-4 flex flex-col gap-2" style={{ backgroundColor: C.brown, borderTop: `2px solid ${C.amber}` }}>
             {NAV_LINKS.map(link => (
-              <button
-                key={link.id}
-                onClick={() => scrollTo(link.id)}
-                className="text-left font-body text-base py-2 border-b transition-colors"
-                style={{ color: '#f4d98a', borderColor: 'rgba(200,129,42,0.2)' }}
-              >
+              <button key={link.id} onClick={() => scrollTo(link.id)}
+                className="text-left font-body text-base py-2.5 border-b font-semibold transition-colors hover:pl-2"
+                style={{ color: C.sunny, borderColor: `${C.amber}33` }}>
                 {link.label}
               </button>
             ))}
-            <a
-              href="tel:+74951234567"
-              className="mt-2 flex items-center justify-center gap-2 font-body font-semibold px-4 py-3 rounded-xl"
-              style={{ backgroundColor: '#c8812a', color: '#fdf6e3' }}
-            >
-              <Icon name="Phone" size={16} />
-              +7 (495) 123-45-67
+            <a href="tel:+74951234567"
+              className="mt-2 flex items-center justify-center gap-2 font-body font-bold px-4 py-3 rounded-xl"
+              style={{ background: `linear-gradient(135deg, ${C.gold}, ${C.amber})`, color: C.earth }}>
+              <Icon name="Phone" size={16} />+7 (495) 123-45-67
             </a>
           </div>
         )}
       </header>
 
-      {/* ═══ TICKER ═══ */}
-      <div className="fixed top-16 left-0 right-0 z-40 h-8 overflow-hidden flex items-center" style={{ backgroundColor: '#c8812a' }}>
+      {/* ══════════════════════════════════════
+          TICKER
+      ══════════════════════════════════════ */}
+      <div className="fixed top-16 left-0 right-0 z-40 h-9 overflow-hidden flex items-center"
+        style={{ background: `linear-gradient(90deg, ${C.grass} 0%, ${C.meadow} 50%, ${C.grass} 100%)`, boxShadow: '0 3px 12px rgba(46,125,30,0.5)' }}>
         <div className="animate-ticker flex gap-16 whitespace-nowrap">
           {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
-            <span key={i} className="font-body font-semibold text-sm tracking-wide" style={{ color: '#fdf6e3' }}>
+            <span key={i} className="font-body font-bold text-sm tracking-wide" style={{ color: '#ffffff', textShadow: '0 1px 3px rgba(0,0,0,0.3)' }}>
               {item}
             </span>
           ))}
         </div>
       </div>
 
-      {/* ═══ HERO ═══ */}
+      {/* ══════════════════════════════════════
+          HERO
+      ══════════════════════════════════════ */}
       <section id="home" className="relative min-h-screen flex items-end overflow-hidden pt-24">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${HERO_IMAGE})` }} />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(61,32,8,0.92) 0%, rgba(61,32,8,0.5) 40%, rgba(61,32,8,0.15) 100%)' }} />
+        <div className="absolute inset-0 bg-cover bg-center scale-105" style={{ backgroundImage: `url(${HERO_IMAGE})`, filter: 'brightness(1.05) saturate(1.2)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(30,12,0,0.93) 0%, rgba(30,12,0,0.55) 45%, rgba(30,12,0,0.1) 100%)' }} />
 
-        {/* Decorative corner flourishes */}
-        <div className="absolute top-28 left-6 text-5xl opacity-30 animate-sway">🌿</div>
-        <div className="absolute top-32 right-8 text-4xl opacity-25 animate-float">🌼</div>
-        <div className="absolute top-1/3 right-4 text-6xl opacity-20 animate-sway" style={{ animationDelay: '1.5s' }}>🐄</div>
+        {/* Яркие плавающие акценты */}
+        <div className="absolute top-28 left-8 text-6xl opacity-60 animate-sway drop-shadow-xl">🌿</div>
+        <div className="absolute top-36 right-10 text-5xl opacity-50 animate-float drop-shadow-xl">🌼</div>
+        <div className="absolute top-1/3 right-6 text-7xl opacity-40 animate-sway drop-shadow-2xl" style={{ animationDelay: '1.5s' }}>🐄</div>
+        <div className="absolute bottom-52 left-12 text-4xl opacity-40 animate-float drop-shadow-lg" style={{ animationDelay: '0.8s' }}>🌻</div>
 
         <div className="relative w-full max-w-7xl mx-auto px-4 pb-0">
-          {/* Main hero content */}
           <div className="max-w-3xl mb-0">
-            {/* Badge */}
-            <div
-              className="inline-flex items-center gap-2 text-xs font-body font-semibold px-4 py-1.5 rounded-full mb-6 tracking-widest uppercase"
-              style={{ backgroundColor: 'rgba(232,184,75,0.2)', border: '1px solid rgba(232,184,75,0.5)', color: '#e8b84b' }}
-            >
+            {/* Бейдж */}
+            <div className="inline-flex items-center gap-2 text-xs font-body font-bold px-4 py-2 rounded-full mb-6 tracking-widest uppercase"
+              style={{ background: `linear-gradient(135deg, ${C.meadow}33, ${C.meadow}11)`, border: `2px solid ${C.meadow}`, color: C.leaf, backdropFilter: 'blur(4px)' }}>
               🚜 Прямые поставки по всей России
             </div>
 
-            <h1 className="font-display text-5xl md:text-7xl font-bold italic leading-none mb-4" style={{ color: '#fdf6e3' }}>
+            <h1 className="font-display font-bold italic leading-none mb-5" style={{ fontSize: 'clamp(2.8rem, 7vw, 5.5rem)', color: '#ffffff', textShadow: '0 4px 24px rgba(0,0,0,0.6)' }}>
               Настоящие продукты<br />
-              <span style={{ color: '#e8b84b' }}>с родной земли</span>
+              <span style={{ color: C.sunny, textShadow: `0 0 40px ${C.gold}99, 0 4px 16px rgba(0,0,0,0.5)` }}>с родной земли</span>
             </h1>
 
-            <p className="font-body text-lg mb-8 max-w-xl leading-relaxed" style={{ color: 'rgba(253,246,227,0.75)' }}>
-              Поставки зерновых, масел, спредов и продовольствия оптом — от поля до вашего склада. Работаем честно, как в деревне.
+            <p className="font-body text-lg mb-10 max-w-xl leading-relaxed" style={{ color: 'rgba(255,240,160,0.85)' }}>
+              Поставки масел, спредов и продовольствия оптом — от поля до вашего склада. Работаем честно, как в деревне.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <button
-                onClick={() => scrollTo("catalog")}
-                className="flex items-center justify-center gap-2 font-body font-bold text-base px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg"
-                style={{ backgroundColor: '#e8b84b', color: '#3d2008' }}
-              >
+            <div className="flex flex-col sm:flex-row gap-4 mb-14">
+              <button onClick={() => scrollTo("catalog")}
+                className="flex items-center justify-center gap-2 font-body font-bold text-lg px-9 py-4 rounded-2xl transition-all duration-300 hover:scale-105"
+                style={{ background: `linear-gradient(135deg, ${C.sunny} 0%, ${C.gold} 100%)`, color: C.earth, boxShadow: `0 6px 28px ${C.gold}77` }}>
                 🛒 Смотреть каталог
               </button>
-              <button
-                onClick={() => scrollTo("contacts")}
-                className="flex items-center justify-center gap-2 font-body font-semibold text-base px-8 py-4 rounded-2xl transition-all duration-300"
-                style={{ border: '2px solid rgba(232,184,75,0.5)', color: '#e8b84b' }}
-              >
+              <button onClick={() => scrollTo("contacts")}
+                className="flex items-center justify-center gap-2 font-body font-bold text-lg px-9 py-4 rounded-2xl transition-all duration-300 hover:scale-105"
+                style={{ border: `2.5px solid ${C.meadow}`, color: C.leaf, backdropFilter: 'blur(4px)', boxShadow: `0 4px 20px ${C.grass}44` }}>
                 ✉️ Написать нам
               </button>
             </div>
           </div>
 
-          {/* Stats bar */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 rounded-t-3xl overflow-hidden" style={{ backgroundColor: 'rgba(61,32,8,0.85)', backdropFilter: 'blur(12px)', border: '1px solid rgba(200,129,42,0.4)', borderBottom: 'none' }}>
+          {/* Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 rounded-t-3xl overflow-hidden"
+            style={{ background: 'rgba(20,8,0,0.88)', backdropFilter: 'blur(16px)', border: `2px solid ${C.amber}55`, borderBottom: 'none', boxShadow: `0 -8px 40px rgba(0,0,0,0.4)` }}>
             {STATS.map((stat, i) => (
-              <div key={i} className="text-center py-6 px-4" style={{ borderRight: i < 3 ? '1px solid rgba(200,129,42,0.2)' : 'none' }}>
+              <div key={i} className="text-center py-6 px-4 group hover:bg-white/5 transition-colors"
+                style={{ borderRight: i < 3 ? `1px solid ${C.amber}22` : 'none' }}>
                 <div className="text-2xl mb-1">{stat.emoji}</div>
-                <div className="font-display text-2xl md:text-3xl font-bold italic" style={{ color: '#e8b84b' }}>{stat.value}</div>
-                <div className="font-body text-xs mt-1" style={{ color: 'rgba(244,217,138,0.6)' }}>{stat.label}</div>
+                <div className="font-display text-2xl md:text-3xl font-bold italic group-hover:scale-110 transition-transform" style={{ color: C.sunny }}>{stat.value}</div>
+                <div className="font-body text-xs mt-1" style={{ color: `${C.straw}88` }}>{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ═══ ABOUT ═══ */}
-      <section id="about" style={{ backgroundColor: '#fdf6e3', backgroundImage: "repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(61,32,8,0.015) 20px, rgba(61,32,8,0.015) 21px)" }}>
+      {/* ══════════════════════════════════════
+          ABOUT
+      ══════════════════════════════════════ */}
+      <section id="about" style={{ background: `linear-gradient(180deg, ${C.cream} 0%, ${C.warm} 100%)` }}>
         <div className="max-w-7xl mx-auto px-4 py-24">
-          <div
-            className="grid md:grid-cols-2 gap-16 items-center"
-            style={{ opacity: isVisible("about") ? 1 : 0, transform: isVisible("about") ? "translateY(0)" : "translateY(40px)", transition: "all 0.8s ease-out" }}
-          >
-            {/* Left — text */}
+          <div className="grid md:grid-cols-2 gap-16 items-center"
+            style={{ opacity: isVisible("about") ? 1 : 0, transform: isVisible("about") ? "translateY(0)" : "translateY(40px)", transition: "all 0.8s ease-out" }}>
+
             <div>
-              <div className="font-hand text-brand-amber text-xl mb-2">О нашей компании</div>
-              <h2 className="font-display text-4xl md:text-5xl font-bold italic leading-tight mb-2" style={{ color: '#3d2008' }}>
+              <div className="font-hand text-2xl mb-2" style={{ color: C.meadow }}>О нашей компании</div>
+              <h2 className="font-display text-4xl md:text-5xl font-bold italic leading-tight mb-1" style={{ color: C.earth }}>
                 Молодые, но надёжные
               </h2>
-              <div className="font-display text-2xl italic mb-6" style={{ color: '#c8812a' }}>с душой к делу</div>
+              <div className="font-display text-2xl italic mb-6" style={{ color: C.amber }}>с душой к делу</div>
 
-              <p className="font-body text-base leading-relaxed mb-4" style={{ color: '#4a2a10' }}>
+              <p className="font-body text-base leading-relaxed mb-4" style={{ color: C.brown }}>
                 Компания ЮМА ТРЕЙД на рынке недавно, но уже успела завоевать доверие партнёров по всей России — честным словом, прозрачными условиями и строгим отношением к качеству каждой поставки.
               </p>
-              <p className="font-body text-base leading-relaxed mb-4" style={{ color: '#4a2a10' }}>
+              <p className="font-body text-base leading-relaxed mb-4" style={{ color: C.brown }}>
                 Мы не гонимся за объёмами ради объёмов. Нам важно, чтобы каждый клиент получил именно то, что ожидал: свежий товар, полный пакет документов и живое человеческое общение — без скриптов и бюрократии.
               </p>
-              <p className="font-body text-base leading-relaxed mb-4" style={{ color: '#4a2a10' }}>
+              <p className="font-body text-base leading-relaxed mb-4" style={{ color: C.brown }}>
                 Работаем напрямую с производителями, держим цены честными и выстраиваем долгосрочные отношения — такие, когда партнёр звонит не по прайсу, а потому что доверяет.
               </p>
-              <p className="font-body text-sm leading-relaxed mb-8 italic" style={{ color: '#8b5e3c' }}>
+              <p className="font-body text-sm leading-relaxed mb-8 italic font-semibold px-4 py-3 rounded-xl"
+                style={{ color: C.grass, backgroundColor: `${C.meadow}18`, border: `1.5px solid ${C.meadow}44` }}>
                 📍 Мы находимся в Свердловской области, г. Екатеринбург — и работаем по всей России.
               </p>
 
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { emoji: "🏅", text: "Сертифицированная продукция" },
-                  { emoji: "🚛", text: "Собственная логистика" },
-                  { emoji: "🛡️", text: "Гарантия качества" },
-                  { emoji: "🤝", text: "Гибкие условия оплаты" },
+                  { emoji: "🏅", text: "Сертифицированная продукция", color: C.gold },
+                  { emoji: "🚛", text: "Собственная логистика",       color: C.amber },
+                  { emoji: "🛡️", text: "Гарантия качества",           color: C.meadow },
+                  { emoji: "🤝", text: "Гибкие условия оплаты",       color: C.grass },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 rounded-2xl p-3" style={{ backgroundColor: '#fff8e8', border: '1px solid rgba(200,129,42,0.2)' }}>
-                    <span className="text-xl">{item.emoji}</span>
-                    <span className="font-body text-sm" style={{ color: '#3d2008' }}>{item.text}</span>
+                  <div key={i} className="flex items-center gap-3 rounded-2xl p-3.5 hover:scale-[1.03] transition-transform"
+                    style={{ backgroundColor: '#fff', border: `2px solid ${item.color}44`, boxShadow: `0 2px 12px ${item.color}22` }}>
+                    <span className="text-2xl">{item.emoji}</span>
+                    <span className="font-body text-sm font-semibold" style={{ color: C.earth }}>{item.text}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Right — village card grid */}
             <div className="relative">
-              <div className="rounded-3xl p-8" style={{ backgroundColor: '#fff8e8', border: '2px solid rgba(200,129,42,0.25)', boxShadow: '0 8px 40px rgba(61,32,8,0.08)' }}>
-                {/* Decorative header */}
+              <div className="rounded-3xl p-8"
+                style={{ background: `linear-gradient(145deg, #fff 0%, ${C.warm} 100%)`, border: `3px solid ${C.gold}55`, boxShadow: `0 12px 60px ${C.amber}22` }}>
                 <div className="text-center mb-6">
-                  <div className="font-hand text-2xl" style={{ color: '#c8812a' }}>Что мы поставляем</div>
-                  <div className="w-24 h-0.5 mx-auto mt-2" style={{ backgroundColor: '#e8b84b' }} />
+                  <div className="font-hand text-2xl" style={{ color: C.amber }}>Что мы поставляем</div>
+                  <div className="w-28 h-1 mx-auto mt-2 rounded-full" style={{ background: `linear-gradient(90deg, ${C.gold}, ${C.meadow})` }} />
                 </div>
                 <div className="grid grid-cols-3 gap-3">
                   {[
-                    { emoji: "🌾", label: "Зерновые" },
-                    { emoji: "🥔", label: "Овощи" },
-                    { emoji: "🍎", label: "Фрукты" },
-                    { emoji: "🥛", label: "Молочное" },
-                    { emoji: "🫒", label: "Масла" },
-                    { emoji: "🥫", label: "Консервы" },
+                    { emoji: "🌾", label: "Зерновые", color: C.gold },
+                    { emoji: "🥔", label: "Овощи",    color: C.amber },
+                    { emoji: "🍎", label: "Фрукты",   color: C.red },
+                    { emoji: "🥛", label: "Молочное", color: '#4a90d9' },
+                    { emoji: "🫒", label: "Масла",    color: C.meadow },
+                    { emoji: "🥫", label: "Консервы", color: C.grass },
                   ].map((cat, i) => (
-                    <div
-                      key={i}
-                      className="rounded-2xl p-4 text-center transition-all duration-300 cursor-default group hover:scale-105"
-                      style={{ backgroundColor: '#fdf6e3', border: '1px solid rgba(200,129,42,0.15)' }}
-                    >
+                    <div key={i}
+                      className="rounded-2xl p-4 text-center transition-all duration-300 cursor-default hover:scale-110 hover:-rotate-1"
+                      style={{ backgroundColor: `${cat.color}15`, border: `2px solid ${cat.color}44` }}>
                       <div className="text-3xl mb-2">{cat.emoji}</div>
-                      <div className="font-body text-xs font-semibold" style={{ color: '#6b3a1f' }}>{cat.label}</div>
+                      <div className="font-body text-xs font-bold" style={{ color: C.brown }}>{cat.label}</div>
                     </div>
                   ))}
                 </div>
               </div>
-              {/* Floating accent */}
-              <div className="absolute -top-5 -right-5 text-5xl animate-float">🌻</div>
-              <div className="absolute -bottom-4 -left-4 text-4xl animate-sway" style={{ animationDelay: '1s' }}>🐄</div>
+              <div className="absolute -top-6 -right-6 text-6xl animate-float drop-shadow-2xl">🌻</div>
+              <div className="absolute -bottom-5 -left-5 text-5xl animate-sway drop-shadow-xl" style={{ animationDelay: '1s' }}>🐄</div>
             </div>
           </div>
         </div>
 
-        {/* Section divider */}
-        <div className="text-center pb-8 font-hand text-xl" style={{ color: '#c8812a', opacity: 0.5 }}>
-          {DIVIDER}
-        </div>
+        <div className="text-center pb-8 font-hand text-2xl" style={{ color: C.amber }}>— ✦ —</div>
       </section>
 
-      {/* ═══ CATALOG ═══ */}
-      <section id="catalog" style={{ backgroundColor: '#fff8e8' }}>
+      {/* ══════════════════════════════════════
+          CATALOG
+      ══════════════════════════════════════ */}
+      <section id="catalog" style={{ background: `linear-gradient(180deg, ${C.warm} 0%, #fff9e0 100%)` }}>
         <div className="max-w-7xl mx-auto px-4 py-24">
-          <div
-            style={{ opacity: isVisible("catalog") ? 1 : 0, transform: isVisible("catalog") ? "translateY(0)" : "translateY(40px)", transition: "all 0.8s ease-out" }}
-          >
-            {/* Header */}
+          <div style={{ opacity: isVisible("catalog") ? 1 : 0, transform: isVisible("catalog") ? "translateY(0)" : "translateY(40px)", transition: "all 0.8s ease-out" }}>
+
             <div className="text-center mb-12">
-              <div className="font-hand text-2xl mb-1" style={{ color: '#c8812a' }}>прямо с полей</div>
-              <h2 className="font-display text-4xl md:text-5xl font-bold italic" style={{ color: '#3d2008' }}>
-                Наш ассортимент
-              </h2>
-              <div className="w-20 h-1 mx-auto mt-4 rounded-full" style={{ backgroundColor: '#e8b84b' }} />
+              <div className="font-hand text-2xl mb-1" style={{ color: C.meadow }}>прямо с полей</div>
+              <h2 className="font-display text-4xl md:text-5xl font-bold italic" style={{ color: C.earth }}>Наш ассортимент</h2>
+              <div className="w-24 h-1.5 mx-auto mt-4 rounded-full" style={{ background: `linear-gradient(90deg, ${C.gold}, ${C.meadow})` }} />
             </div>
 
-            {/* Filters row */}
+            {/* Фильтры */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
               <div className="flex flex-wrap gap-2">
                 {CATEGORIES.map(cat => (
-                  <button
-                    key={cat}
-                    onClick={() => setActiveCategory(cat)}
-                    className="font-body font-semibold text-sm px-4 py-2 rounded-full transition-all duration-200"
-                    style={
-                      activeCategory === cat
-                        ? { backgroundColor: '#3d2008', color: '#e8b84b' }
-                        : { backgroundColor: '#fdf6e3', color: '#6b3a1f', border: '1px solid rgba(107,58,31,0.25)' }
-                    }
-                  >
+                  <button key={cat} onClick={() => setActiveCategory(cat)}
+                    className="font-body font-bold text-sm px-4 py-2 rounded-full transition-all duration-200 hover:scale-105"
+                    style={activeCategory === cat
+                      ? { background: `linear-gradient(135deg, ${C.earth}, ${C.brown})`, color: C.sunny, boxShadow: `0 4px 16px ${C.brown}66` }
+                      : { backgroundColor: '#fff', color: C.brown, border: `2px solid ${C.amber}44`, boxShadow: '0 2px 8px rgba(0,0,0,0.07)' }
+                    }>
                     {cat}
                   </button>
                 ))}
               </div>
-              <div className="flex flex-col gap-1 min-w-[220px]">
+              <div className="flex flex-col gap-1.5 min-w-[220px]">
                 <div className="flex justify-between items-center">
-                  <span className="font-body text-sm" style={{ color: '#8b5e3c' }}>Цена до</span>
-                  <span className="font-body font-bold" style={{ color: '#c8812a' }}>{maxPrice.toLocaleString()} ₽/т</span>
+                  <span className="font-body text-sm font-semibold" style={{ color: C.brown }}>Цена до</span>
+                  <span className="font-body font-bold" style={{ color: C.amber }}>{maxPrice.toLocaleString()} ₽/т</span>
                 </div>
-                <input
-                  type="range" min={12000} max={100000} step={1000} value={maxPrice}
+                <input type="range" min={12000} max={100000} step={1000} value={maxPrice}
                   onChange={e => setMaxPrice(Number(e.target.value))}
-                  className="w-full cursor-pointer accent-amber-700"
-                />
+                  className="w-full cursor-pointer accent-amber-600" />
               </div>
             </div>
 
-            {/* Products */}
+            {/* Карточки */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-              {filteredProducts.map((product) => (
-                <div
-                  key={product.id}
-                  className="rounded-3xl p-5 group transition-all duration-300 hover:scale-[1.02] hover:shadow-lg cursor-default"
-                  style={{ backgroundColor: '#fdf6e3', border: '1.5px solid rgba(200,129,42,0.2)', boxShadow: '0 2px 12px rgba(61,32,8,0.06)' }}
-                >
+              {filteredProducts.map(product => (
+                <div key={product.id}
+                  className="rounded-3xl p-5 group transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 cursor-default"
+                  style={{ backgroundColor: '#fff', border: `2px solid ${C.gold}44`, boxShadow: `0 4px 20px rgba(200,120,0,0.1)` }}>
                   <div className="flex items-start justify-between mb-3">
-                    <div className="text-4xl">{product.emoji}</div>
-                    <div
-                      className="text-xs font-body font-semibold px-2 py-1 rounded-lg"
-                      style={{ backgroundColor: 'rgba(200,129,42,0.12)', color: '#8b5e3c' }}
-                    >
+                    <div className="text-4xl group-hover:scale-110 transition-transform">{product.emoji}</div>
+                    <div className="text-xs font-body font-bold px-2.5 py-1 rounded-full"
+                      style={{ background: `${C.meadow}20`, color: C.grass, border: `1px solid ${C.meadow}44` }}>
                       {product.category}
                     </div>
                   </div>
-                  <h3 className="font-display text-lg font-bold italic mb-1 group-hover:text-amber-700 transition-colors" style={{ color: '#3d2008' }}>
+                  <h3 className="font-display text-lg font-bold italic mb-1 group-hover:text-amber-700 transition-colors" style={{ color: C.earth }}>
                     {product.name}
                   </h3>
-                  <p className="font-body text-sm leading-relaxed mb-4" style={{ color: '#8b5e3c' }}>
+                  <p className="font-body text-sm leading-relaxed mb-4" style={{ color: C.brown, opacity: 0.8 }}>
                     {product.desc}
                   </p>
                   <div className="flex items-end justify-between">
                     <div>
-                      <div className="font-display text-2xl font-bold italic" style={{ color: '#c8812a' }}>
+                      <div className="font-display text-2xl font-bold italic" style={{ color: C.amber }}>
                         {product.price.toLocaleString()} ₽
                       </div>
-                      <div className="font-body text-xs" style={{ color: '#8b5e3c' }}>за {product.unit}</div>
+                      <div className="font-body text-xs" style={{ color: C.brown, opacity: 0.6 }}>за {product.unit}</div>
                     </div>
-                    <button
-                      onClick={() => scrollTo("contacts")}
-                      className="text-xs font-body font-bold px-3 py-2 rounded-xl transition-all duration-200 hover:opacity-80"
-                      style={{ backgroundColor: '#3d2008', color: '#e8b84b' }}
-                    >
+                    <button onClick={() => scrollTo("contacts")}
+                      className="text-xs font-body font-bold px-3 py-2 rounded-xl transition-all duration-200 hover:scale-105"
+                      style={{ background: `linear-gradient(135deg, ${C.earth}, ${C.brown})`, color: C.sunny, boxShadow: `0 3px 10px ${C.brown}55` }}>
                       Запрос цены
                     </button>
                   </div>
@@ -434,44 +407,41 @@ export default function Index() {
             </div>
 
             {filteredProducts.length === 0 && (
-              <div className="text-center py-20 font-body" style={{ color: '#8b5e3c' }}>
-                <div className="text-5xl mb-4">🔍</div>
+              <div className="text-center py-20 font-body" style={{ color: C.brown }}>
+                <div className="text-6xl mb-4">🔍</div>
                 Ничего не найдено по выбранным фильтрам
               </div>
             )}
           </div>
         </div>
-
-        <div className="text-center pb-8 font-hand text-xl" style={{ color: '#c8812a', opacity: 0.5 }}>{DIVIDER}</div>
+        <div className="text-center pb-8 font-hand text-2xl" style={{ color: C.amber }}>— ✦ —</div>
       </section>
 
-      {/* ═══ DOCUMENTS ═══ */}
-      <section id="price" style={{ backgroundColor: '#fdf6e3' }}>
+      {/* ══════════════════════════════════════
+          DOCUMENTS
+      ══════════════════════════════════════ */}
+      <section id="price" style={{ background: `linear-gradient(180deg, #fff9e0 0%, ${C.cream} 100%)` }}>
         <div className="max-w-7xl mx-auto px-4 py-24">
-          <div
-            style={{ opacity: isVisible("price") ? 1 : 0, transform: isVisible("price") ? "translateY(0)" : "translateY(40px)", transition: "all 0.8s ease-out" }}
-          >
+          <div style={{ opacity: isVisible("price") ? 1 : 0, transform: isVisible("price") ? "translateY(0)" : "translateY(40px)", transition: "all 0.8s ease-out" }}>
+
             <div className="text-center mb-14">
-              <div className="font-hand text-2xl mb-1" style={{ color: '#c8812a' }}>скачайте и сохраните</div>
-              <h2 className="font-display text-4xl md:text-5xl font-bold italic" style={{ color: '#3d2008' }}>
-                Прайс и документы
-              </h2>
-              <div className="w-20 h-1 mx-auto mt-4 rounded-full" style={{ backgroundColor: '#e8b84b' }} />
+              <div className="font-hand text-2xl mb-1" style={{ color: C.meadow }}>скачайте и сохраните</div>
+              <h2 className="font-display text-4xl md:text-5xl font-bold italic" style={{ color: C.earth }}>Прайс и документы</h2>
+              <div className="w-24 h-1.5 mx-auto mt-4 rounded-full" style={{ background: `linear-gradient(90deg, ${C.gold}, ${C.meadow})` }} />
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 mb-14">
               {DOCS.map((doc, i) => (
-                <div
-                  key={i}
-                  className="rounded-3xl p-8 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group cursor-pointer"
-                  style={{ backgroundColor: '#fff8e8', border: '2px solid rgba(200,129,42,0.2)', boxShadow: '0 4px 20px rgba(61,32,8,0.07)' }}
-                >
-                  <div className="text-5xl mb-5">{doc.emoji}</div>
-                  <h3 className="font-display text-xl font-bold italic mb-2 group-hover:text-amber-700 transition-colors" style={{ color: '#3d2008' }}>
+                <div key={i}
+                  className="rounded-3xl p-8 transition-all duration-300 hover:scale-[1.03] hover:-translate-y-2 group cursor-pointer"
+                  style={{ backgroundColor: '#fff', border: `3px solid ${doc.bg}55`, boxShadow: `0 6px 32px ${doc.bg}22` }}>
+                  <div className="text-6xl mb-5 group-hover:scale-110 transition-transform">{doc.emoji}</div>
+                  <h3 className="font-display text-xl font-bold italic mb-2 transition-colors" style={{ color: C.earth }}>
                     {doc.name}
                   </h3>
-                  <p className="font-body text-sm mb-6" style={{ color: '#8b5e3c' }}>{doc.desc}</p>
-                  <div className="flex items-center gap-2 font-body text-sm font-semibold" style={{ color: '#c8812a' }}>
+                  <p className="font-body text-sm mb-6" style={{ color: C.brown, opacity: 0.75 }}>{doc.desc}</p>
+                  <div className="flex items-center gap-2 font-body text-sm font-bold px-4 py-2.5 rounded-xl w-fit transition-all duration-200 group-hover:scale-105"
+                    style={{ background: `${doc.bg}22`, color: doc.bg, border: `1.5px solid ${doc.bg}55` }}>
                     <Icon name="Download" size={16} />
                     Скачать
                   </div>
@@ -479,154 +449,127 @@ export default function Index() {
               ))}
             </div>
 
-            {/* CTA banner */}
-            <div
-              className="rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8"
-              style={{ background: 'linear-gradient(135deg, #3d2008 0%, #6b3a1f 100%)', boxShadow: '0 8px 40px rgba(61,32,8,0.2)' }}
-            >
+            {/* CTA */}
+            <div className="rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8"
+              style={{ background: `linear-gradient(135deg, ${C.earth} 0%, ${C.brown} 60%, ${C.grass} 100%)`, boxShadow: `0 12px 60px rgba(0,0,0,0.25)` }}>
               <div>
-                <div className="font-hand text-xl mb-1" style={{ color: '#e8b84b' }}>не теряйте время!</div>
-                <h3 className="font-display text-2xl md:text-3xl font-bold italic" style={{ color: '#fdf6e3' }}>
+                <div className="font-hand text-xl mb-1" style={{ color: C.sunny }}>не теряйте время!</div>
+                <h3 className="font-display text-2xl md:text-3xl font-bold italic" style={{ color: '#fff' }}>
                   Нужен актуальный прайс?
                 </h3>
-                <p className="font-body text-base mt-2 max-w-md" style={{ color: 'rgba(253,246,227,0.65)' }}>
+                <p className="font-body text-base mt-2 max-w-md" style={{ color: 'rgba(255,240,160,0.75)' }}>
                   Оставьте заявку — пришлём прайс-лист и договор поставки в течение 30 минут
                 </p>
               </div>
-              <button
-                onClick={() => scrollTo("contacts")}
-                className="whitespace-nowrap flex items-center gap-3 font-body font-bold text-base px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg"
-                style={{ backgroundColor: '#e8b84b', color: '#3d2008' }}
-              >
+              <button onClick={() => scrollTo("contacts")}
+                className="whitespace-nowrap flex items-center gap-3 font-body font-bold text-lg px-9 py-4 rounded-2xl transition-all duration-300 hover:scale-105"
+                style={{ background: `linear-gradient(135deg, ${C.sunny}, ${C.gold})`, color: C.earth, boxShadow: `0 6px 28px ${C.gold}77` }}>
                 <Icon name="Send" size={18} />
                 Запросить прайс
               </button>
             </div>
           </div>
         </div>
-
-        <div className="text-center pb-8 font-hand text-xl" style={{ color: '#c8812a', opacity: 0.5 }}>{DIVIDER}</div>
+        <div className="text-center pb-8 font-hand text-2xl" style={{ color: C.amber }}>— ✦ —</div>
       </section>
 
-      {/* ═══ CONTACTS ═══ */}
-      <section id="contacts" style={{ backgroundColor: '#fff8e8' }}>
+      {/* ══════════════════════════════════════
+          CONTACTS
+      ══════════════════════════════════════ */}
+      <section id="contacts" style={{ background: `linear-gradient(180deg, ${C.cream} 0%, ${C.warm} 100%)` }}>
         <div className="max-w-7xl mx-auto px-4 py-24">
-          <div
-            style={{ opacity: isVisible("contacts") ? 1 : 0, transform: isVisible("contacts") ? "translateY(0)" : "translateY(40px)", transition: "all 0.8s ease-out" }}
-          >
+          <div style={{ opacity: isVisible("contacts") ? 1 : 0, transform: isVisible("contacts") ? "translateY(0)" : "translateY(40px)", transition: "all 0.8s ease-out" }}>
+
             <div className="text-center mb-14">
-              <div className="font-hand text-2xl mb-1" style={{ color: '#c8812a' }}>заходите в гости</div>
-              <h2 className="font-display text-4xl md:text-5xl font-bold italic" style={{ color: '#3d2008' }}>
-                Свяжитесь с нами
-              </h2>
-              <div className="w-20 h-1 mx-auto mt-4 rounded-full" style={{ backgroundColor: '#e8b84b' }} />
+              <div className="font-hand text-2xl mb-1" style={{ color: C.meadow }}>заходите в гости</div>
+              <h2 className="font-display text-4xl md:text-5xl font-bold italic" style={{ color: C.earth }}>Свяжитесь с нами</h2>
+              <div className="w-24 h-1.5 mx-auto mt-4 rounded-full" style={{ background: `linear-gradient(90deg, ${C.gold}, ${C.meadow})` }} />
             </div>
 
             <div className="grid lg:grid-cols-2 gap-10">
-              {/* Contact cards */}
               <div className="space-y-4">
                 {[
-                  { icon: "Phone",  label: "Телефон",        value: "+7 (495) 123-45-67",  href: "tel:+74951234567",          emoji: "📞" },
-                  { icon: "Mail",   label: "Email",           value: "info@yumatrade.ru",    href: "mailto:info@yumatrade.ru",  emoji: "📧" },
-                  { icon: "MapPin", label: "Адрес",           value: "г. Москва, ул. Пищевая, 1", href: "#",                  emoji: "📍" },
-                  { icon: "Clock",  label: "Режим работы",    value: "Пн–Пт: 9:00–18:00",   href: "#",                        emoji: "🕘" },
+                  { emoji: "📞", label: "Телефон",     value: "+7 (495) 123-45-67",  href: "tel:+74951234567",        color: C.meadow },
+                  { emoji: "📧", label: "Email",        value: "info@yumatrade.ru",   href: "mailto:info@yumatrade.ru",color: '#4a90d9' },
+                  { emoji: "📍", label: "Адрес",        value: "г. Екатеринбург, Свердловская область", href: "#",   color: C.amber },
+                  { emoji: "🕘", label: "Режим работы", value: "Пн–Пт: 9:00–18:00",  href: "#",                       color: C.gold },
                 ].map((contact, i) => (
-                  <a
-                    key={i}
-                    href={contact.href}
-                    className="flex items-center gap-5 rounded-2xl p-5 transition-all duration-300 group hover:scale-[1.01]"
-                    style={{ backgroundColor: '#fdf6e3', border: '1.5px solid rgba(200,129,42,0.2)', boxShadow: '0 2px 12px rgba(61,32,8,0.05)' }}
-                  >
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 transition-all duration-300"
-                      style={{ backgroundColor: 'rgba(200,129,42,0.12)' }}
-                    >
+                  <a key={i} href={contact.href}
+                    className="flex items-center gap-5 rounded-2xl p-5 transition-all duration-300 group hover:scale-[1.02] hover:-translate-y-0.5"
+                    style={{ backgroundColor: '#fff', border: `2px solid ${contact.color}33`, boxShadow: `0 4px 20px ${contact.color}18` }}>
+                    <div className="w-13 h-13 w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 transition-all duration-300 group-hover:scale-110"
+                      style={{ background: `${contact.color}18`, border: `2px solid ${contact.color}44` }}>
                       {contact.emoji}
                     </div>
                     <div>
-                      <div className="font-body text-xs mb-0.5" style={{ color: '#8b5e3c' }}>{contact.label}</div>
-                      <div className="font-body font-semibold group-hover:text-amber-700 transition-colors" style={{ color: '#3d2008' }}>
-                        {contact.value}
-                      </div>
+                      <div className="font-body text-xs font-semibold mb-0.5" style={{ color: contact.color }}>{contact.label}</div>
+                      <div className="font-body font-bold text-base" style={{ color: C.earth }}>{contact.value}</div>
                     </div>
                   </a>
                 ))}
 
                 <div className="flex gap-3 pt-2">
                   {[
-                    { label: "WhatsApp", emoji: "💬", color: '#25d366' },
-                    { label: "Telegram", emoji: "✈️", color: '#229ed9' },
+                    { label: "WhatsApp", emoji: "💬", bg: '#25d366', shadow: '#25d36655' },
+                    { label: "Telegram", emoji: "✈️", bg: '#229ed9', shadow: '#229ed955' },
                   ].map((soc, i) => (
-                    <button
-                      key={i}
-                      className="flex items-center gap-2 font-body font-semibold text-sm px-5 py-3 rounded-xl transition-all duration-200 flex-1 justify-center hover:opacity-85 hover:scale-[1.02]"
-                      style={{ backgroundColor: soc.color, color: '#fff' }}
-                    >
+                    <button key={i}
+                      className="flex items-center gap-2 font-body font-bold text-sm px-5 py-3.5 rounded-xl transition-all duration-200 flex-1 justify-center hover:scale-105 hover:-translate-y-0.5"
+                      style={{ backgroundColor: soc.bg, color: '#fff', boxShadow: `0 4px 18px ${soc.shadow}` }}>
                       {soc.emoji} {soc.label}
                     </button>
                   ))}
                 </div>
               </div>
 
-              {/* Form */}
-              <form
-                onSubmit={handleFormSubmit}
-                className="rounded-3xl p-8"
-                style={{ backgroundColor: '#fdf6e3', border: '2px solid rgba(200,129,42,0.2)', boxShadow: '0 4px 30px rgba(61,32,8,0.08)' }}
-              >
-                <div className="font-hand text-xl mb-1" style={{ color: '#c8812a' }}>напишите нам</div>
-                <h3 className="font-display text-2xl font-bold italic mb-6" style={{ color: '#3d2008' }}>Оставить заявку</h3>
+              {/* Форма */}
+              <form onSubmit={handleFormSubmit} className="rounded-3xl p-8"
+                style={{ backgroundColor: '#fff', border: `3px solid ${C.gold}44`, boxShadow: `0 8px 48px ${C.amber}18` }}>
+                <div className="font-hand text-xl mb-1" style={{ color: C.meadow }}>напишите нам</div>
+                <h3 className="font-display text-2xl font-bold italic mb-6" style={{ color: C.earth }}>Оставить заявку</h3>
 
                 {formStatus === "ok" ? (
                   <div className="flex flex-col items-center justify-center py-12 gap-4">
-                    <div className="text-6xl">🎉</div>
-                    <div className="font-display text-2xl italic font-bold text-center" style={{ color: '#3d2008' }}>Заявка отправлена!</div>
-                    <div className="font-body text-center" style={{ color: '#8b5e3c' }}>Мы свяжемся с вами в течение 30 минут</div>
-                    <button type="button" onClick={() => setFormStatus("idle")} className="mt-4 font-body text-sm underline" style={{ color: '#8b5e3c' }}>
+                    <div className="text-7xl animate-float">🎉</div>
+                    <div className="font-display text-2xl italic font-bold text-center" style={{ color: C.grass }}>Заявка отправлена!</div>
+                    <div className="font-body text-center" style={{ color: C.brown }}>Мы свяжемся с вами в течение 30 минут</div>
+                    <button type="button" onClick={() => setFormStatus("idle")}
+                      className="mt-4 font-body text-sm underline" style={{ color: C.brown }}>
                       Отправить ещё
                     </button>
                   </div>
                 ) : (
                   <div className="space-y-4">
                     {[
-                      { label: "Ваше имя *",   name: "name",    type: "text",  placeholder: "Иван Иванов",         required: true },
-                      { label: "Компания",      name: "company", type: "text",  placeholder: "ООО «Пример»",        required: false },
-                      { label: "Телефон *",     name: "phone",   type: "tel",   placeholder: "+7 (___) ___-__-__",  required: true },
+                      { label: "Ваше имя *", name: "name",    type: "text", placeholder: "Иван Иванов",        required: true },
+                      { label: "Компания",   name: "company", type: "text", placeholder: "ООО «Пример»",       required: false },
+                      { label: "Телефон *",  name: "phone",   type: "tel",  placeholder: "+7 (___) ___-__-__", required: true },
                     ].map(field => (
                       <div key={field.name}>
-                        <label className="font-body text-xs mb-2 block" style={{ color: '#8b5e3c' }}>{field.label}</label>
-                        <input
-                          type={field.type}
-                          name={field.name}
-                          value={form[field.name as keyof typeof form]}
-                          onChange={handleFormChange}
-                          required={field.required}
-                          placeholder={field.placeholder}
-                          className="w-full font-body rounded-xl px-4 py-3 outline-none transition-colors"
-                          style={{ backgroundColor: '#fff8e8', border: '1.5px solid rgba(200,129,42,0.25)', color: '#3d2008' }}
+                        <label className="font-body text-xs font-bold mb-2 block" style={{ color: C.brown }}>{field.label}</label>
+                        <input type={field.type} name={field.name} value={form[field.name as keyof typeof form]}
+                          onChange={handleFormChange} required={field.required} placeholder={field.placeholder}
+                          className="w-full font-body rounded-xl px-4 py-3 outline-none transition-all"
+                          style={{ backgroundColor: C.warm, border: `2px solid ${C.gold}44`, color: C.earth }}
                         />
                       </div>
                     ))}
                     <div>
-                      <label className="font-body text-xs mb-2 block" style={{ color: '#8b5e3c' }}>Что интересует?</label>
-                      <textarea
-                        rows={3} name="message" value={form.message} onChange={handleFormChange}
+                      <label className="font-body text-xs font-bold mb-2 block" style={{ color: C.brown }}>Что интересует?</label>
+                      <textarea rows={3} name="message" value={form.message} onChange={handleFormChange}
                         placeholder="Опишите потребность или укажите интересующие позиции..."
-                        className="w-full font-body rounded-xl px-4 py-3 outline-none transition-colors resize-none"
-                        style={{ backgroundColor: '#fff8e8', border: '1.5px solid rgba(200,129,42,0.25)', color: '#3d2008' }}
+                        className="w-full font-body rounded-xl px-4 py-3 outline-none transition-all resize-none"
+                        style={{ backgroundColor: C.warm, border: `2px solid ${C.gold}44`, color: C.earth }}
                       />
                     </div>
                     {formStatus === "error" && (
-                      <div className="font-body text-sm text-center text-red-600">
-                        Ошибка отправки. Пожалуйста, позвоните нам напрямую.
+                      <div className="font-body text-sm text-center text-red-600 font-semibold">
+                        Ошибка отправки. Позвоните нам напрямую.
                       </div>
                     )}
-                    <button
-                      type="submit"
-                      disabled={formStatus === "sending"}
-                      className="w-full font-body font-bold text-base py-4 rounded-xl transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
-                      style={{ backgroundColor: '#3d2008', color: '#e8b84b' }}
-                    >
+                    <button type="submit" disabled={formStatus === "sending"}
+                      className="w-full font-body font-bold text-lg py-4 rounded-xl transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-60"
+                      style={{ background: `linear-gradient(135deg, ${C.earth}, ${C.brown})`, color: C.sunny, boxShadow: `0 6px 24px ${C.brown}55` }}>
                       <Icon name={formStatus === "sending" ? "Loader" : "Send"} size={18} />
                       {formStatus === "sending" ? "Отправляем..." : "Отправить заявку"}
                     </button>
@@ -638,30 +581,29 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ═══ FOOTER ═══ */}
-      <footer style={{ backgroundColor: '#3d2008', borderTop: '3px solid #c8812a' }}>
+      {/* ══════════════════════════════════════
+          FOOTER
+      ══════════════════════════════════════ */}
+      <footer style={{ background: `linear-gradient(135deg, ${C.earth} 0%, ${C.brown} 100%)`, borderTop: `4px solid ${C.gold}` }}>
         <div className="max-w-7xl mx-auto px-4 py-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">
-              <span className="text-3xl">🌾</span>
+              <span className="text-4xl">🌾</span>
               <div>
-                <div className="font-display text-xl font-bold italic" style={{ color: '#e8b84b' }}>ЮМА ТРЕЙД</div>
-                <div className="font-hand text-xs" style={{ color: 'rgba(244,217,138,0.6)' }}>продукты питания оптом</div>
+                <div className="font-display text-2xl font-bold italic" style={{ color: C.sunny }}>ЮМА ТРЕЙД</div>
+                <div className="font-hand text-sm" style={{ color: `${C.straw}88` }}>продукты питания оптом</div>
               </div>
             </div>
             <div className="flex flex-wrap justify-center gap-6">
               {NAV_LINKS.map(link => (
-                <button
-                  key={link.id}
-                  onClick={() => scrollTo(link.id)}
-                  className="font-body text-sm transition-colors hover:opacity-80"
-                  style={{ color: 'rgba(244,217,138,0.55)' }}
-                >
+                <button key={link.id} onClick={() => scrollTo(link.id)}
+                  className="font-body text-sm font-semibold transition-all hover:scale-105"
+                  style={{ color: `${C.straw}77` }}>
                   {link.label}
                 </button>
               ))}
             </div>
-            <div className="font-body text-sm text-center" style={{ color: 'rgba(244,217,138,0.35)' }}>
+            <div className="font-body text-sm text-center" style={{ color: `${C.straw}44` }}>
               © 2024 ЮМА ТРЕЙД
             </div>
           </div>
